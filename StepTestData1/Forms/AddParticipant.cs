@@ -82,23 +82,25 @@ namespace StepTestData1
                             foreach (DataTable table in result.Tables)
                                 foreach (DataRow row in table.Rows)
                                 {
-                                    if (row.ItemArray.All(o => string.IsNullOrWhiteSpace(o?.ToString())))
-                                        continue;
-                                    ParticipantInfos participant;
                                     try
                                     {
-                                        participant = new ParticipantInfos()
+                                        if (
+                                            row.ItemArray.All(o => string.IsNullOrWhiteSpace(o?.ToString()))
+                                            || row[table.Columns[0]].ToString().Length < 2
+                                            || int.Parse(row[table.Columns[1]].ToString()) < 14
+                                        ) continue;
+                                        var participant = new ParticipantInfos()
                                         {    
                                             Name = row[table.Columns[0]].ToString(),
                                             Age = int.Parse(row[table.Columns[1]].ToString()),
                                             Sex = Enum.Parse(typeof(Sex), row[table.Columns[2]].ToString(), true) as Sex?
                                         };
+                                        participants.Add(participant);
+                                        AddParticipantToList(participant);
                                     } catch
                                     {
                                         continue;
                                     }
-                                    participants.Add(participant);
-                                    AddParticipantToList(participant);
                                 }
                         }
                     }
