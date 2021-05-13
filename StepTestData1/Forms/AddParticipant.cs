@@ -11,9 +11,10 @@ namespace StepTestData1
     public partial class AddParticipant : ApplicationForm
     {
 
-        private readonly List<ParticipantInfos> participants = new List<ParticipantInfos>();
-        public AddParticipant()
+        private readonly List<ParticipantInfos> participants;
+        public AddParticipant(List<ParticipantInfos> participants = null)
         {
+            this.participants = participants ?? new List<ParticipantInfos>();
             InitializeComponent();
         }
         private void AddParticipant_Load(object sender, EventArgs e)
@@ -29,7 +30,7 @@ namespace StepTestData1
 
         private void StartSessionBtn_Click(object sender, EventArgs e)
         {
-
+            Switch(new TestSession(participants));
         }
 
         private void AddParticipantToList(ParticipantInfos userInfo)
