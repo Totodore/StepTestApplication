@@ -39,6 +39,12 @@ namespace StepTestData1
             Close();
         }
 
+        public void Switch(Form form)
+        {
+            form.Show();
+            Close();
+        }
+
         /// <summary>
         /// Event listener when the form closes
         /// If the close has been called it means that we have to only close the form and not the app
