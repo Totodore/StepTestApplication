@@ -19,7 +19,7 @@ namespace StepTestData1
 
         private void NewSession_Click(object sender, EventArgs e)
         {
-            Switch<AddParticipant>();
+            Switch(new AddParticipant());
         }
 
         private void ConsultPrevious_Click(object sender, EventArgs e)

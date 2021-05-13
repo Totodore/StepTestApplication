@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 namespace StepTestData1
 {
@@ -13,13 +15,27 @@ namespace StepTestData1
     /// Without the app closing Problem. Because if we close the main form then the app will close
     /// And if we instantiate the main form before running the app, if the form closes the app will continue to run in background
     /// </summary>
-    public class ApplicationForm : Form
+    public class ApplicationForm : MaterialForm
     {
         private bool calledClose = false;
 
         public ApplicationForm()
         {
             FormClosing += OnFormClose;
+
+            // Create a material theme manager and add the form to manage (this)
+            MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+
+            // Configure color schema
+            materialSkinManager.ColorScheme = new ColorScheme(
+                Primary.DeepPurple900, Primary.DeepPurple900,
+                Primary.DeepPurple600, Accent.DeepPurple700,
+                TextShade.WHITE
+            );
+            FormBorderStyle = FormBorderStyle.Sizable;
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         /// <summary>

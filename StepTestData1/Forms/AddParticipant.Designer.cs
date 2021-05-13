@@ -40,6 +40,11 @@ namespace StepTestData1
             this.StartSessionBtn = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.Back = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.Step15 = new MaterialSkin.Controls.MaterialRadioButton();
+            this.Step20 = new MaterialSkin.Controls.MaterialRadioButton();
+            this.Step25 = new MaterialSkin.Controls.MaterialRadioButton();
+            this.Step30 = new MaterialSkin.Controls.MaterialRadioButton();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // Title
@@ -89,10 +94,10 @@ namespace StepTestData1
             this.Age,
             this.UserSex});
             this.AddedParticipants.HideSelection = false;
-            this.AddedParticipants.Location = new System.Drawing.Point(182, 238);
+            this.AddedParticipants.Location = new System.Drawing.Point(177, 239);
             this.AddedParticipants.Name = "AddedParticipants";
             this.AddedParticipants.ShowGroups = false;
-            this.AddedParticipants.Size = new System.Drawing.Size(403, 137);
+            this.AddedParticipants.Size = new System.Drawing.Size(308, 137);
             this.AddedParticipants.TabIndex = 7;
             this.AddedParticipants.UseCompatibleStateImageBehavior = false;
             this.AddedParticipants.KeyUp += new System.Windows.Forms.KeyEventHandler(this.AddedParticipants_KeyUp);
@@ -115,6 +120,7 @@ namespace StepTestData1
             // StartSessionBtn
             // 
             this.StartSessionBtn.Depth = 0;
+            this.StartSessionBtn.Enabled = false;
             this.StartSessionBtn.Location = new System.Drawing.Point(532, 397);
             this.StartSessionBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.StartSessionBtn.Name = "StartSessionBtn";
@@ -131,7 +137,7 @@ namespace StepTestData1
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(178, 193);
+            this.materialLabel1.Location = new System.Drawing.Point(173, 194);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(116, 24);
@@ -151,11 +157,99 @@ namespace StepTestData1
             this.Back.UseVisualStyleBackColor = true;
             this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
+            // Step15
+            // 
+            this.Step15.AutoSize = true;
+            this.Step15.Checked = true;
+            this.Step15.Depth = 0;
+            this.Step15.Font = new System.Drawing.Font("Roboto", 10F);
+            this.Step15.Location = new System.Drawing.Point(554, 221);
+            this.Step15.Margin = new System.Windows.Forms.Padding(0);
+            this.Step15.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.Step15.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Step15.Name = "Step15";
+            this.Step15.Ripple = true;
+            this.Step15.Size = new System.Drawing.Size(73, 30);
+            this.Step15.TabIndex = 12;
+            this.Step15.TabStop = true;
+            this.Step15.Tag = "15";
+            this.Step15.Text = "15cm";
+            this.Step15.UseVisualStyleBackColor = true;
+            // 
+            // Step20
+            // 
+            this.Step20.AutoSize = true;
+            this.Step20.Depth = 0;
+            this.Step20.Font = new System.Drawing.Font("Roboto", 10F);
+            this.Step20.Location = new System.Drawing.Point(554, 260);
+            this.Step20.Margin = new System.Windows.Forms.Padding(0);
+            this.Step20.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.Step20.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Step20.Name = "Step20";
+            this.Step20.Ripple = true;
+            this.Step20.Size = new System.Drawing.Size(73, 30);
+            this.Step20.TabIndex = 13;
+            this.Step20.Tag = "20";
+            this.Step20.Text = "20cm";
+            this.Step20.UseVisualStyleBackColor = true;
+            // 
+            // Step25
+            // 
+            this.Step25.AutoSize = true;
+            this.Step25.Depth = 0;
+            this.Step25.Font = new System.Drawing.Font("Roboto", 10F);
+            this.Step25.Location = new System.Drawing.Point(554, 304);
+            this.Step25.Margin = new System.Windows.Forms.Padding(0);
+            this.Step25.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.Step25.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Step25.Name = "Step25";
+            this.Step25.Ripple = true;
+            this.Step25.Size = new System.Drawing.Size(73, 30);
+            this.Step25.TabIndex = 14;
+            this.Step25.Tag = "25";
+            this.Step25.Text = "25cm";
+            this.Step25.UseVisualStyleBackColor = true;
+            // 
+            // Step30
+            // 
+            this.Step30.AutoSize = true;
+            this.Step30.Depth = 0;
+            this.Step30.Font = new System.Drawing.Font("Roboto", 10F);
+            this.Step30.Location = new System.Drawing.Point(554, 345);
+            this.Step30.Margin = new System.Windows.Forms.Padding(0);
+            this.Step30.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.Step30.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Step30.Name = "Step30";
+            this.Step30.Ripple = true;
+            this.Step30.Size = new System.Drawing.Size(73, 30);
+            this.Step30.TabIndex = 15;
+            this.Step30.Tag = "30";
+            this.Step30.Text = "30cm";
+            this.Step30.UseVisualStyleBackColor = true;
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(516, 193);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(92, 24);
+            this.materialLabel2.TabIndex = 16;
+            this.materialLabel2.Text = "Step size:";
+            // 
             // AddParticipant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.materialLabel2);
+            this.Controls.Add(this.Step30);
+            this.Controls.Add(this.Step25);
+            this.Controls.Add(this.Step20);
+            this.Controls.Add(this.Step15);
             this.Controls.Add(this.Back);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.StartSessionBtn);
@@ -184,5 +278,10 @@ namespace StepTestData1
         private System.Windows.Forms.ColumnHeader UserName;
         private System.Windows.Forms.ColumnHeader Age;
         private System.Windows.Forms.ColumnHeader UserSex;
+        private MaterialSkin.Controls.MaterialRadioButton Step15;
+        private MaterialSkin.Controls.MaterialRadioButton Step20;
+        private MaterialSkin.Controls.MaterialRadioButton Step25;
+        private MaterialSkin.Controls.MaterialRadioButton Step30;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
     }
 }

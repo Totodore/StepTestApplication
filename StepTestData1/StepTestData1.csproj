@@ -102,6 +102,12 @@
     <Compile Include="Forms\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\TabTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TabTest.Designer.cs">
+      <DependentUpon>TabTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\TestSession.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Previous.resx">
       <DependentUpon>Previous.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TabTest.resx">
+      <DependentUpon>TabTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TestSession.resx">
       <DependentUpon>TestSession.cs</DependentUpon>

@@ -157,6 +157,7 @@ namespace StepTestData1
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddParticipantInfos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add a new participant";
             this.Load += new System.EventHandler(this.AddParticipantInfos_Load);
             this.ResumeLayout(false);

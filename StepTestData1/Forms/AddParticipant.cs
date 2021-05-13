@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using ExcelDataReader;
+using MaterialSkin.Controls;
 
 namespace StepTestData1
 {
@@ -12,6 +13,7 @@ namespace StepTestData1
     {
 
         private readonly List<ParticipantInfos> participants;
+        private List<MaterialRadioButton> stepsBtns;
         public AddParticipant(List<ParticipantInfos> participants = null)
         {
             this.participants = participants ?? new List<ParticipantInfos>();
@@ -21,6 +23,13 @@ namespace StepTestData1
         {
             AddedParticipants.View = View.Details;
             AddedParticipants.FullRowSelect = true;
+            stepsBtns = new List<MaterialRadioButton>()
+            {
+                Step15,
+                Step20,
+                Step25,
+                Step30
+            };
         }
 
         private void Back_Click(object sender, EventArgs e)
@@ -30,7 +39,11 @@ namespace StepTestData1
 
         private void StartSessionBtn_Click(object sender, EventArgs e)
         {
-            Switch(new TestSession(participants));
+            int stepHeight = 15;
+            foreach (var step in stepsBtns)
+                if (step.Checked)
+                    stepHeight = int.Parse(step.Tag.ToString());
+            Switch(new TestSession(participants, stepHeight));
         }
 
         private void AddParticipantToList(ParticipantInfos userInfo)
@@ -40,6 +53,8 @@ namespace StepTestData1
             arr[1] = userInfo.Age.ToString();
             arr[2] = userInfo.Sex.ToString();
             AddedParticipants.Items.Add(new ListViewItem(arr));
+            if (AddedParticipants.Items.Count > 0 && !StartSessionBtn.Enabled)
+                StartSessionBtn.Enabled = true;
         }
         private async void NewParticipantBtn_Click(object sender, EventArgs e)
         {
