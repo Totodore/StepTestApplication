@@ -15,14 +15,14 @@ namespace StepTestData1
             {
                 if (sex == Sex.Male)
                 {
-                    Bounds ageBound = maleTable.Keys.Single(el => el == new Bounds(age));
-                    Bounds scoreBound = maleTable[ageBound].Keys.Single(el => el == new Bounds(score));
+                    Bounds ageBound = maleTable.Keys.Single(el => el.Contains(age));
+                    Bounds scoreBound = maleTable[ageBound].Keys.Single(el => el.Contains(score));
                     return maleTable[ageBound][scoreBound];
                 }
                 else
                 {
-                    Bounds ageBound = femaleTable.Keys.Single(el => el == new Bounds(age));
-                    Bounds scoreBound = femaleTable[ageBound].Keys.Single(el => el == new Bounds(score));
+                    Bounds ageBound = femaleTable.Keys.Single(el => el.Contains(age));
+                    Bounds scoreBound = femaleTable[ageBound].Keys.Single(el => el.Contains(score));
                     return femaleTable[ageBound][scoreBound];
                 }
             } catch
@@ -31,6 +31,55 @@ namespace StepTestData1
             }
         }
 
+        public static int? GetAreobicCapacityFromStep(int level, int stepHeight)
+        {
+            try
+            {
+                return stepTable[level][stepHeight];
+            } catch
+            {
+                return null;
+            }
+        }
+
+        public static readonly List<Dictionary<int, int>> stepTable = new List<Dictionary<int, int>>
+        {
+            new Dictionary<int, int>
+            {
+                { 15, 11 },
+                { 20, 12 },
+                { 25, 14 },
+                { 30, 16 }
+            },
+            new Dictionary<int, int>
+            {
+                { 15, 14 },
+                { 20, 17 },
+                { 25, 19 },
+                { 30, 21 },
+            },
+            new Dictionary<int, int>
+            {
+                { 15, 18 },
+                { 20, 21 },
+                { 25, 24 },
+                { 30, 27 }
+            },
+            new Dictionary<int, int>
+            {
+                { 15, 21 },
+                { 20, 25 },
+                { 25, 28 },
+                { 30, 32 }
+            },
+            new Dictionary<int, int>
+            {
+                { 15, 25 },
+                { 20, 29 },
+                { 25, 33 },
+                { 30, 37 }
+            }
+        };
         public static readonly Dictionary<Bounds, Dictionary<Bounds, Rating>> femaleTable = new Dictionary<Bounds, Dictionary<Bounds, Rating>>()
         {
             {
@@ -350,7 +399,7 @@ namespace StepTestData1
         };
     }
 
-    public class Bounds : IEquatable<Bounds>
+    public class Bounds
     {
 
         public Bounds(int min, int max = int.MaxValue)
@@ -367,17 +416,6 @@ namespace StepTestData1
         {
             return bound.min >= min && bound.max <= max;
         }
-
-        public override bool Equals(object obj)
-        {
-            return Equals(obj as Bounds);
-        }
-
-        public bool Equals(Bounds otherBound)
-        {
-            return otherBound.min >= min && otherBound.min <= max;
-        }
-
         public override string ToString()
         {
             return "Bounds (" + min + ", " + max + ")";
@@ -390,17 +428,8 @@ namespace StepTestData1
 
         public int min = 0;
         public int max = 0;
-
-        public static bool operator ==(Bounds left, Bounds right)
-        {
-            return EqualityComparer<Bounds>.Default.Equals(left, right);
-        }
-
-        public static bool operator !=(Bounds left, Bounds right)
-        {
-            return !(left == right);
-        }
     }
+
 
     public enum Rating
     {

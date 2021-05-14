@@ -14,10 +14,17 @@ namespace StepTestData1
 
         private readonly List<ParticipantInfos> participants;
         private List<MaterialRadioButton> stepsBtns;
-        public AddParticipant(List<ParticipantInfos> participants = null)
+        public AddParticipant()
         {
-            this.participants = participants ?? new List<ParticipantInfos>();
+            participants = new List<ParticipantInfos>();
             InitializeComponent();
+        }
+        public AddParticipant(List<ParticipantInfos> participants)
+        {
+            this.participants = participants;
+            InitializeComponent();
+            foreach (var participant in participants)
+                AddParticipantToList(participant);
         }
         private void AddParticipant_Load(object sender, EventArgs e)
         {
@@ -109,7 +116,7 @@ namespace StepTestData1
                                         {    
                                             Name = row[table.Columns[0]].ToString(),
                                             Age = int.Parse(row[table.Columns[1]].ToString()),
-                                            Sex = Enum.Parse(typeof(Sex), row[table.Columns[2]].ToString(), true) as Sex?
+                                            Sex = (Sex)Enum.Parse(typeof(Sex), row[table.Columns[2]].ToString(), true)
                                         };
                                         participants.Add(participant);
                                         AddParticipantToList(participant);

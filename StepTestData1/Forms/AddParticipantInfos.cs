@@ -48,8 +48,8 @@ namespace StepTestData1
 
     public class ParticipantInfos
     {
-        public int? Age { get; set; }
+        public int Age { get; set; }
         public string Name { get; set; } = "";
-        public Sex? Sex { get; set; }
+        public Sex Sex { get; set; }
     }
 }
