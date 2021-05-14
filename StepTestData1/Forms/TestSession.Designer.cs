@@ -42,7 +42,6 @@ namespace StepTestData1
             this.TabView.SelectedIndex = 0;
             this.TabView.Size = new System.Drawing.Size(800, 450);
             this.TabView.TabIndex = 0;
-            this.TabView.SelectedIndexChanged += new System.EventHandler(this.TabView_SelectedIndexChanged);
             // 
             // Back
             // 

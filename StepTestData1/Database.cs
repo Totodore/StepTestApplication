@@ -11,15 +11,9 @@ namespace StepTestData1
 {
     public class DatabaseContext : DbContext
     {
-        // Votre contexte a été configuré pour utiliser une chaîne de connexion « Database » du fichier 
-        // de configuration de votre application (App.config ou Web.config). Par défaut, cette chaîne de connexion cible 
-        // la base de données « StepTestData1.Database » sur votre instance LocalDb. 
-        // 
-        // Pour cibler une autre base de données et/ou un autre fournisseur de base de données, modifiez 
-        // la chaîne de connexion « Database » dans le fichier de configuration de l'application.
         public DatabaseContext() : base("name=Database")
         {
-            Database.SetInitializer<DatabaseContext>(new DropCreateDatabaseIfModelChanges<DatabaseContext>());
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<DatabaseContext>());
         }
 
         public DbSet<Test> Tests { get; set; }
@@ -37,6 +31,7 @@ namespace StepTestData1
             }
         }
 
+        /// <returns>Get all the <see cref="Test"/></returns>
         public static async Task<List<Test>> GetAll()
         {
             using (var context = new DatabaseContext())

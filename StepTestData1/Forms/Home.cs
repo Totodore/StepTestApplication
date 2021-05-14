@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace StepTestData1
 {
+    /// <summary>
+    /// The home form class contains only 2 event listeners that handle the switch form to the new session or to the previous test form
+    /// </summary>
     public partial class Home : ApplicationForm
     {
         public Home()
@@ -19,7 +22,7 @@ namespace StepTestData1
 
         private void NewSession_Click(object sender, EventArgs e)
         {
-            Switch(new AddParticipant());
+            Switch<AddParticipant>();
         }
 
         private void ConsultPrevious_Click(object sender, EventArgs e)

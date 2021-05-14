@@ -13,27 +13,42 @@ namespace StepTestData1
     public partial class Previous : ApplicationForm
     {
 
+        /// <summary>
+        /// List of the loaded tests
+        /// </summary>
         private List<Test> tests;
         public Previous()
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// We Load test we the window is loading
+        /// </summary>
         private void Previous_Load(object sender, EventArgs e)
         {
             LoadTests();
         }
+        /// <summary>
+        /// We get all the test and we display them
+        /// </summary>
         public async void LoadTests()
         {
-            await DatabaseContext.Add(new Test() { Age = 19, Date = DateTime.Now, Score = 29, Sex = Sex.Male, UserName = "azdiazdnoi" });
             tests = await DatabaseContext.GetAll();
             DisplayTable();
         }
 
+        /// <summary>
+        /// When we click on the back button we get back to the home form
+        /// </summary>
         private void Back_Click(object sender, EventArgs e)
         {
             Switch<Home>();
         }
 
+        /// <summary>
+        /// Iterate each loaded test and add them to the table
+        /// Then it autoresize the columns
+        /// </summary>
         private void DisplayTable()
         {
             foreach (var test in tests)
@@ -41,13 +56,20 @@ namespace StepTestData1
             Results.AutoResizeColumns();
         }
 
+        /// <summary>
+        /// If we search in the searchbar we make a search request and we redisplay data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void SearchInput_TextChanged(object sender, EventArgs e)
         {
-            Results.Rows.Clear();
             tests = await DatabaseContext.Search(SearchInput.Text);
+            Results.Rows.Clear();
             DisplayTable();
         }
-
+        /// <summary>
+        /// If we click on delete when rows are selected we remove them from the database
+        /// </summary>
         private void Results_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             DatabaseContext.Delete(tests[e.RowIndex]);

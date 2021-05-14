@@ -29,8 +29,8 @@ namespace StepTestData1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.NameVal = new MaterialSkin.Controls.MaterialLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -432,10 +432,10 @@ namespace StepTestData1
             this.AerobicVal.Font = new System.Drawing.Font("Roboto", 11F);
             this.AerobicVal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.AerobicVal.Location = new System.Drawing.Point(13, 360);
-            this.AerobicVal.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.AerobicVal.Margin = new System.Windows.Forms.Padding(3, 10, 60, 0);
             this.AerobicVal.MouseState = MaterialSkin.MouseState.HOVER;
             this.AerobicVal.Name = "AerobicVal";
-            this.AerobicVal.Size = new System.Drawing.Size(158, 24);
+            this.AerobicVal.Size = new System.Drawing.Size(88, 48);
             this.AerobicVal.TabIndex = 13;
             this.AerobicVal.Text = "Aerobic Capacity:";
             // 
@@ -445,8 +445,8 @@ namespace StepTestData1
             this.FitnessVal.Depth = 0;
             this.FitnessVal.Font = new System.Drawing.Font("Roboto", 11F);
             this.FitnessVal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.FitnessVal.Location = new System.Drawing.Point(13, 394);
-            this.FitnessVal.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.FitnessVal.Location = new System.Drawing.Point(13, 418);
+            this.FitnessVal.Margin = new System.Windows.Forms.Padding(3, 10, 20, 0);
             this.FitnessVal.MouseState = MaterialSkin.MouseState.HOVER;
             this.FitnessVal.Name = "FitnessVal";
             this.FitnessVal.Size = new System.Drawing.Size(136, 24);
@@ -457,7 +457,7 @@ namespace StepTestData1
             // 
             this.SaveBtn.Depth = 0;
             this.SaveBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.SaveBtn.Location = new System.Drawing.Point(13, 428);
+            this.SaveBtn.Location = new System.Drawing.Point(13, 452);
             this.SaveBtn.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.SaveBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.SaveBtn.Name = "SaveBtn";
@@ -470,11 +470,11 @@ namespace StepTestData1
             // 
             // Chart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.Chart.ChartAreas.Add(chartArea3);
+            chartArea2.Name = "ChartArea1";
+            this.Chart.ChartAreas.Add(chartArea2);
             this.Chart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend3.Name = "Legend1";
-            this.Chart.Legends.Add(legend3);
+            legend2.Name = "Legend1";
+            this.Chart.Legends.Add(legend2);
             this.Chart.Location = new System.Drawing.Point(3, 3);
             this.Chart.Name = "Chart";
             this.Chart.Size = new System.Drawing.Size(838, 506);

@@ -6,31 +6,42 @@ using System.Threading.Tasks;
 
 namespace StepTestData1
 {
+    /// <summary>
+    /// (The Utils Class may appear a bit messy but I didn't find any solution to handle that in another way)
+    /// It stores the two conversion tables (male, female) to get the rating from the score 
+    /// and the conversion table to get the aerobic capacity from a level and a step height
+    /// </summary>
     public static class Utils
     {
 
+        /// <summary>
+        /// Methods that get the Fitness Rating from a all the data in parameter
+        /// It find in the male table of female table below the apropriate values
+        /// </summary>
+        /// <param name="score">The score of the test</param>
+        /// <param name="age">The age of the participant</param>
+        /// <param name="sex">The sex of the participant</param>
+        /// <returns>A rating label from the Rating enum or null if it found nothing</returns>
         public static Rating? ComputeRatingFromScore(int score, int age, Sex sex)
         {
             try
             {
-                if (sex == Sex.Male)
-                {
-                    Bounds ageBound = maleTable.Keys.Single(el => el.Contains(age));
-                    Bounds scoreBound = maleTable[ageBound].Keys.Single(el => el.Contains(score));
-                    return maleTable[ageBound][scoreBound];
-                }
-                else
-                {
-                    Bounds ageBound = femaleTable.Keys.Single(el => el.Contains(age));
-                    Bounds scoreBound = femaleTable[ageBound].Keys.Single(el => el.Contains(score));
-                    return femaleTable[ageBound][scoreBound];
-                }
+                var table = sex == Sex.Male ? maleTable : femaleTable;
+                Bounds ageBound = table.Keys.Single(el => el.Contains(age));
+                Bounds scoreBound = table[ageBound].Keys.Single(el => el.Contains(score));
+                return table[ageBound][scoreBound];
             } catch
             {
                 return null;
             }
         }
 
+        /// <summary>
+        /// Methods that get the aerobic capacity in order to place the point correctly when computing results
+        /// </summary>
+        /// <param name="level">The level of the measure (0 to 4)</param>
+        /// <param name="stepHeight">The height of the step</param>
+        /// <returns>The aerobic capacity</returns>
         public static int? GetAreobicCapacityFromStep(int level, int stepHeight)
         {
             try
@@ -41,7 +52,9 @@ namespace StepTestData1
                 return null;
             }
         }
-
+        /// <summary>
+        /// The List represents all the levels and the key of the dictionnary is the step height, the value is the aerobic capacity
+        /// </summary>
         public static readonly List<Dictionary<int, int>> stepTable = new List<Dictionary<int, int>>
         {
             new Dictionary<int, int>
@@ -80,6 +93,10 @@ namespace StepTestData1
                 { 30, 37 }
             }
         };
+        /// <summary>
+        /// The key of the first dictionnary is a bound representing the min age and the max age, 
+        /// the value is another dictionnary with the score as key and the rating as value
+        /// </summary>
         public static readonly Dictionary<Bounds, Dictionary<Bounds, Rating>> femaleTable = new Dictionary<Bounds, Dictionary<Bounds, Rating>>()
         {
             {
@@ -399,6 +416,9 @@ namespace StepTestData1
         };
     }
 
+    /// <summary>
+    /// Class that represent a bound (a min and a max) with a method contains to know if a value is in the bounds
+    /// </summary>
     public class Bounds
     {
 
