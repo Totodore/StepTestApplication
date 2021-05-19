@@ -67,13 +67,5 @@ namespace StepTestData1
             Results.Rows.Clear();
             DisplayTable();
         }
-        /// <summary>
-        /// If we click on delete when rows are selected we remove them from the database
-        /// </summary>
-        private void Results_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
-        {
-            DatabaseContext.Delete(tests[e.RowIndex]);
-        }
-
     }
 }

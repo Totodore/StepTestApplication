@@ -115,7 +115,6 @@ namespace StepTestData1
             this.Results.RowTemplate.Height = 24;
             this.Results.Size = new System.Drawing.Size(678, 289);
             this.Results.TabIndex = 9;
-            this.Results.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.Results_RowsRemoved);
             // 
             // UserName
             // 
