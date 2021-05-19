@@ -39,6 +39,7 @@ Once the five values entered, the aerobic capacity and the fitness are computed,
  
 <br>
 <br>
+<br>
 
 ## II – Testing Strategy
 
